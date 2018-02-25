@@ -21,6 +21,9 @@ int _printf(const char *format, ...)
 		{
 			id = find_id(format, form_c);
 			str = (*get_id_funct(id))(arg);
+			free(id);
+			if (id == NULL || str == NULL)
+				return (0);
 			while (str[s_c] != '\0')
 			{
 				buffer[buf_c] = str[s_c];
@@ -31,9 +34,11 @@ int _printf(const char *format, ...)
 		}
 		else
 			buffer[buf_c] = format[form_c];
+		free(str);
 		buf_c++;
 		form_c++;
 	}
+	buffer = _realloc(buffer, 1024, (unsigned)(buf_c));
 	write(1, buffer, buf_c);
 	va_end(arg);
 	return (buf_c);
