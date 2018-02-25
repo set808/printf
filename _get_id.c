@@ -9,10 +9,10 @@
 void (*get_id_func)(char *identifier)(va_list)
 {
 	id_t ids[] = {
-		{"%c", },
-		{"%s", },
-		{"%d", },
-		{"%i", },
+		{"%c", char_to_string},
+		{"%s", string_to_string},
+		{"%d", int_to_string},
+		{"%i", int_to_string},
 		{NULL, NULL}
 	};
 	int i = 0;
