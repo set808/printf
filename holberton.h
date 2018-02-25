@@ -21,5 +21,6 @@ char *(*get_id_func(char *id))(va_list);
 int _strcmp(char *s1, char *s2);
 char *strcpy(char *dest, char *src);
 char *find_id(char *s, int index);
+char *s_char(va_list arg);
 
 #endif /* _PRINTF */
