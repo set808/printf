@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 
 /**
  * _printf - prints all the characters and arguments passed to it
@@ -10,6 +11,7 @@ int _printf(const char *format, ...)
 	va_list arg;
 	int buf_c = 0, form_c = 0, s_c = 0;
 	char *buffer, *str, *id;
+	id_func f;
 
 	va_start(arg, format);
 	buffer = malloc(sizeof(char) * 1024);
@@ -20,26 +22,31 @@ int _printf(const char *format, ...)
 		if (format[form_c] == '%')
 		{
 			id = find_id(format, form_c);
-			str = (*get_id_funct(id))(arg);
-			free(id);
+			f = get_id_func(id);
+			str = f(arg);
+			printf("Value of str: %s\n", str);
 			if (id == NULL || str == NULL)
 				return (0);
+			free(id);
+			s_c = 0;
 			while (str[s_c] != '\0')
 			{
 				buffer[buf_c] = str[s_c];
 				buf_c++;
 				s_c++;
 			}
-			form_c += (s_c - 1);
+			form_c += 1;
+			free(str);
 		}
 		else
 			buffer[buf_c] = format[form_c];
-		free(str);
 		buf_c++;
 		form_c++;
 	}
+	buffer[buf_c] = '\0';
 	buffer = _realloc(buffer, 1024, (unsigned)(buf_c));
 	write(1, buffer, buf_c);
 	va_end(arg);
+	free(buffer);
 	return (buf_c);
 }

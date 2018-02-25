@@ -2,7 +2,9 @@
 #define _PRINTF
 #include <stdarg.h>
 #include <stdlib.h>
-#include <stdio.h>
+#include <unistd.h>
+
+typedef char * (*id_func)(va_list);
 
 /**
  * identifier - definition of _printf identifier
@@ -13,14 +15,14 @@
 typedef struct identifier
 {
 	char *id;
-	void (*f)(va_list);
+	id_func f;
 } print_id;
 
 int _printf(const char *format, ...);
-char *(*get_id_func(char *id))(va_list);
+id_func get_id_func(char *id);
 int _strcmp(char *s1, char *s2);
 char *strcpy(char *dest, char *src);
-char *find_id(char *s, int index);
+char *find_id(const char *s, int index);
 char *char_to_string(va_list arg);
 char *string_to_string(va_list arg);
 char *int_to_string(va_list list);

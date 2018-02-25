@@ -7,7 +7,7 @@
  * Return: returns a string containing an identifier
  */
 
-char *find_id(char *s, int index)
+char *find_id(const char *s, int index)
 {
 	char *found = malloc(sizeof(char) * 3);
 	strcpy(found, "%a");

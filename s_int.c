@@ -7,11 +7,12 @@
  */
 int numlen(int n)
 {
-	int count = 0, num = n;
+	int count = 0;
+	int num = n;
 
 	while (num != 0)
 	{
-		num %= 10;
+		num /= 10;
 		count++;
 	}
 	return (count);
@@ -44,11 +45,13 @@ char *int_to_string(va_list list)
 		res[i] = '-';
 		i++;
 	}
+
 	for (x = 0; digits > 9 || digits < -9; x++)
 	{
 		digits /= 10;
 		tens *= 10;
 	}
+
 	for (digits = number; x >= 0; x--)
 	{
 		if (digits / 10 < 0)
@@ -61,8 +64,9 @@ char *int_to_string(va_list list)
 			res[i] = (digits / tens) + '0';
 			i++;
 		}
-		digit %= tens;
+		digits %= tens;
 		tens /= 10;
 	}
-	return (result);
+	res[i] = '\0';
+	return (res);
 }

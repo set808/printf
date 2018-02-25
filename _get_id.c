@@ -17,9 +17,9 @@ char *(*get_id_func(char *identifier))(va_list)
 	};
 	int i = 0;
 
-	while (ids[i].op != NULL)
+	while (ids[i].id != NULL)
 	{
-		if (_strcmp(identifier, *ids[i].id) == 0)
+		if (_strcmp(identifier, ids[i].id) == 0)
 			return (ids[i].f);
 		i++;
 	}
