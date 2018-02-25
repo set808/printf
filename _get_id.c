@@ -6,9 +6,9 @@
  * Return: returns the corresponding print function
  */
 
-void (*get_id_func)(char *identifier)(va_list)
+char *(*get_id_func(char *identifier))(va_list)
 {
-	id_t ids[] = {
+	print_id ids[] = {
 		{"%c", char_to_string},
 		{"%s", string_to_string},
 		{"%d", int_to_string},
@@ -17,7 +17,7 @@ void (*get_id_func)(char *identifier)(va_list)
 	};
 	int i = 0;
 
-	while (ids[i] != NULL)
+	while (ids[i].op != NULL)
 	{
 		if (_strcmp(identifier, *ids[i].id) == 0)
 			return (ids[i].f);
