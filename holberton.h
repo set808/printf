@@ -24,5 +24,7 @@ char *find_id(char *s, int index);
 char *char_to_string(va_list arg);
 char *string_to_string(va_list arg);
 char *int_to_string(va_list list);
+int _strlen(char *s);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 #endif /* _PRINTF */
