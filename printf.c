@@ -35,13 +35,15 @@ int _printf(const char *format, ...)
 				buf_c++;
 				s_c++;
 			}
-			form_c += 1;
+			form_c += 2;
 			free(str);
 		}
 		else
+		{
 			buffer[buf_c] = format[form_c];
-		buf_c++;
-		form_c++;
+			buf_c++;
+			form_c++;
+		}
 	}
 	buffer[buf_c] = '\0';
 	buffer = _realloc(buffer, 1024, (unsigned)(buf_c));
