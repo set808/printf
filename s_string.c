@@ -9,7 +9,7 @@
  */
 char *string_to_string(va_list arg)
 {
-	char *s, *c_s; //*n;
+	char *s, *c_s;
 
 	s = va_arg(arg, char *);
 	if (s == NULL)
