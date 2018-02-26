@@ -36,7 +36,10 @@ int print_string(const char *format, va_list arg, char *buffer)
 			if (f == NULL)
 				str = id;
 			else
+			{
+				free(id);
 				str = f(arg);
+			}
 			s_c = 0;
 			while (str[s_c] != '\0')
 			{
@@ -45,7 +48,6 @@ int print_string(const char *format, va_list arg, char *buffer)
 				s_c++;
 			}
 			form_c += 2;
-			free(id);
 			free(str);
 		}
 		else
