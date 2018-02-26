@@ -13,6 +13,6 @@ char *string_to_string(va_list arg)
 
 	s = va_arg(arg, char *);
 	c_s = malloc(sizeof(char) * (_strlen(s) + 1));
-	c_s = _strcpy(c_s, s);
+	c_s = strcpy(c_s, s);
 	return (c_s);
 }
