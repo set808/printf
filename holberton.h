@@ -7,7 +7,7 @@
 typedef char * (*id_func)(va_list);
 
 /**
- * identifier - definition of _printf identifier
+ * struct identifier - definition of _printf identifier
  * @id: the identifier
  * @f: function for identifier
  *

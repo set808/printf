@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
  * create_buffer - allocates memory for a buffer
  *
