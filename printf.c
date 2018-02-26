@@ -1,17 +1,20 @@
 #include "holberton.h"
-/**
- * create_buffer - allocates memory for a buffer
- *
- * Return: returns a pointer to a buffer
- */
-char *create_buffer(void)
-{
-	char *buffer;
 
-	buffer = malloc(sizeof(char) * 1024);
-	if (buffer == NULL)
-		return (NULL);
-	return (buffer);
+/**
+ * locate_form - locate space and count
+ * @s: all string passed to it
+ * @index: current location of index
+ * Return: the nuber of spaces
+ */
+int locate_form(const char *s, int index)
+{
+	int x;
+	char *space;
+
+	space = " ";
+	for (x = 1; s[index + x] == space[0]; x++)
+		;
+	return (x - 1);
 }
 
 /**
@@ -47,7 +50,7 @@ int print_string(const char *format, va_list arg, char *buffer)
 				buffer[buf_c] = str[s_c];
 				buf_c++;
 			}
-			form_c += 2;
+			form_c += (2 + locate_form(format, form_c));
 			free(str);
 		}
 		else
