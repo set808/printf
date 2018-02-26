@@ -10,8 +10,10 @@
 char *find_id(const char *s, int index)
 {
 	unsigned int x;
-	char *space = " ";
-	char *found = malloc(sizeof(char) * 3);
+	char *space, *found;
+
+	found = malloc(sizeof(char) * 3);
+	space = " ";
 
 	if (s == NULL || found == NULL)
 		return (NULL);

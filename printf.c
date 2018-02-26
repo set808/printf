@@ -75,6 +75,8 @@ int _printf(const char *format, ...)
 	int count = 0;
 	char *buffer;
 
+	if (format == NULL)
+		return (0);
 	va_start(arg, format);
 	buffer = create_buffer();
 	count = print_string(format, arg, buffer);
