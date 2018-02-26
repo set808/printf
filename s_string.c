@@ -12,7 +12,11 @@ char *string_to_string(va_list arg)
 	char *s, *c_s;
 
 	s = va_arg(arg, char *);
+	if (s == NULL)
+		return (NULL);
 	c_s = malloc(sizeof(char) * (_strlen(s) + 1));
+	if (c_s == NULL)
+		return (NULL);
 	c_s = strcpy(c_s, s);
 	return (c_s);
 }
