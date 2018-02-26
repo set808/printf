@@ -11,7 +11,7 @@ char *string_to_string(va_list arg)
 {
 	char *s, *c_s, *n;
 
-	n = "(null)"
+	n = "(null)";
 	s = va_arg(arg, char *);
 	if (s == NULL)
 		return (n);
