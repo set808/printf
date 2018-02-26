@@ -10,9 +10,11 @@
 char *char_to_string(va_list arg)
 {
 	char *s;
-	char c;
+	char c = 0;
 
 	c = va_arg(arg, int);
+	if (c == 0)
+		c = ' ';
 	s = malloc(sizeof(char) * 2);
 	if (s == NULL)
 		return (NULL);
