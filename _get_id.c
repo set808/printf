@@ -13,6 +13,7 @@ char *(*get_id_func(char *identifier))(va_list)
 		{"%s", string_to_string},
 		{"%d", int_to_string},
 		{"%i", int_to_string},
+		{"%%", percent_to_string},
 		{NULL, NULL}
 	};
 	int i = 0;
