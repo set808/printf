@@ -1,5 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
+#include "holberton.h"
 
 /**
  * _realloc - reallocate memory block
