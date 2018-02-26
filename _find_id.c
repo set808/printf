@@ -9,11 +9,15 @@
 
 char *find_id(const char *s, int index)
 {
+	unsigned int x;
+	char *space = " ";
 	char *found = malloc(sizeof(char) * 3);
+
 	if (s == NULL || found == NULL)
 		return (NULL);
 	strcpy(found, "%a");
-
-	found[1] = s[index + 1];
+	for (x = 1; s[index + x] == space[0]; x++)
+		;
+	found[1] = s[index + x];
 	return (found);
 }
