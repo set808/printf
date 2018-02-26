@@ -32,6 +32,8 @@ int print_string(const char *format, va_list arg, char *buffer)
 		if (format[form_c] == '%')
 		{
 			id = find_id(format, form_c);
+			if (id[1] == '\0')
+				return (-1);
 			f = get_id_func(id);
 			if (f == NULL)
 				str = id;
@@ -40,12 +42,10 @@ int print_string(const char *format, va_list arg, char *buffer)
 				free(id);
 				str = f(arg);
 			}
-			s_c = 0;
-			while (str[s_c] != '\0')
+			for (s_c = 0; str[s_c] != '\0'; s_c++)
 			{
 				buffer[buf_c] = str[s_c];
 				buf_c++;
-				s_c++;
 			}
 			form_c += 2;
 			free(str);
