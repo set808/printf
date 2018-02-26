@@ -10,7 +10,7 @@ int numlen(int n)
 	int count = 0;
 	int num = n;
 
-	while (num != 0)
+	while (num > 9 || num < -9)
 	{
 		num /= 10;
 		count++;
@@ -54,7 +54,7 @@ char *int_to_string(va_list list)
 
 	for (digits = number; x >= 0; x--)
 	{
-		if (digits / 10 < 0)
+		if (digits < 0)
 		{
 			res[i] = (digits / tens) * -1 + '0';
 			i++;
