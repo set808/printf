@@ -34,9 +34,8 @@ int _printf(const char *format, ...)
 			id = find_id(format, form_c);
 			f = get_id_func(id);
 			str = f(arg);
-			if (id == NULL || str == NULL)
-				return (0);
-			free(id);
+			if (str == NULL)
+				str = id;
 			s_c = 0;
 			while (str[s_c] != '\0')
 			{
@@ -45,6 +44,7 @@ int _printf(const char *format, ...)
 				s_c++;
 			}
 			form_c += 2;
+			free(id);
 			free(str);
 		}
 		else
