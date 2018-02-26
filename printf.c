@@ -16,7 +16,10 @@ char *create_buffer(void)
 
 /**
  * print_string - it will print the sting using write
- *
+ * @format: all string passed to it
+ * @arg: the list of arguments
+ * @buffer: the buffer of the write
+ * Return: the nuber of buffer size
  */
 int print_string(const char *format, va_list arg, char *buffer)
 {
@@ -30,9 +33,10 @@ int print_string(const char *format, va_list arg, char *buffer)
 		{
 			id = find_id(format, form_c);
 			f = get_id_func(id);
-			str = f(arg);
-			if (str == NULL)
+			if (f == NULL)
 				str = id;
+			else
+				str = f(arg);
 			s_c = 0;
 			while (str[s_c] != '\0')
 			{
