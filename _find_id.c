@@ -10,6 +10,8 @@
 char *find_id(const char *s, int index)
 {
 	char *found = malloc(sizeof(char) * 3);
+	if (s == NULL || found == NULL)
+		return (NULL);
 	strcpy(found, "%a");
 
 	found[1] = s[index + 1];
