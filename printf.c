@@ -1,6 +1,19 @@
 #include "holberton.h"
 #include <stdio.h>
+/**
+ * create_buffer - allocates memory for a buffer
+ *
+ * Return: returns a pointer to a buffer
+ */
+char *create_buffer(void)
+{
+	char *buffer;
 
+	buffer = malloc(sizeof(char) * 1024);
+	if (buffer == NULL)
+		return (NULL);
+	return (buffer);
+}
 /**
  * _printf - prints all the characters and arguments passed to it
  * @format: all the arguments passed depending on identifiers
@@ -14,9 +27,7 @@ int _printf(const char *format, ...)
 	id_func f;
 
 	va_start(arg, format);
-	buffer = malloc(sizeof(char) * 1024);
-	if (buffer == NULL)
-		return (0);
+	buffer = create_buffer();
 	while (format[form_c] != '\0')
 	{
 		if (format[form_c] == '%')
@@ -24,7 +35,6 @@ int _printf(const char *format, ...)
 			id = find_id(format, form_c);
 			f = get_id_func(id);
 			str = f(arg);
-			printf("Value of str: %s\n", str);
 			if (id == NULL || str == NULL)
 				return (0);
 			free(id);
@@ -46,7 +56,7 @@ int _printf(const char *format, ...)
 		}
 	}
 	buffer[buf_c] = '\0';
-	buffer = _realloc(buffer, 1024, (unsigned)(buf_c));
+	buffer = _realloc(buffer, 1024, (unsigned int)(buf_c));
 	write(1, buffer, buf_c);
 	va_end(arg);
 	free(buffer);

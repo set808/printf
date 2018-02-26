@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * s_char - gets arguments character and converts it to string
+ * char_to_string - gets arguments character and converts it to string
  *
  * @arg: variable list of arguments
  *

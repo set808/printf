@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
  * numlen - counts digits of a number
- * @n - number
+ * @n: number
  *
  * Return: returns count of digits
  */
@@ -26,14 +26,12 @@ int numlen(int n)
 
 char *int_to_string(va_list list)
 {
-	int number, digits, tens, i, t, x;
+	int number, digits, tens, i = 0, t = 0, x;
 	char *res;
 
 	number = va_arg(list, int);
 	digits = number;
 	tens = 1;
-	i = 0;
-	t = 0;
 
 	if (number < 0)
 		t = 1;
@@ -45,13 +43,11 @@ char *int_to_string(va_list list)
 		res[i] = '-';
 		i++;
 	}
-
 	for (x = 0; digits > 9 || digits < -9; x++)
 	{
 		digits /= 10;
 		tens *= 10;
 	}
-
 	for (digits = number; x >= 0; x--)
 	{
 		if (digits < 0)

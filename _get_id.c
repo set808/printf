@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
  * get_id_func - takes an identifier and returns a void pointer to function
- * @id: identifier passed to function
+ * @identifier: identifier passed to function
  *
  * Return: returns the corresponding print function
  */
