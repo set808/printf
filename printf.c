@@ -13,20 +13,17 @@ char *create_buffer(void)
 		return (NULL);
 	return (buffer);
 }
+
 /**
- * _printf - prints all the characters and arguments passed to it
- * @format: all the arguments passed depending on identifiers
- * Return: Number of characters printed
+ * print_string - it will print the sting using write
+ *
  */
-int _printf(const char *format, ...)
+int print_string(const char *format, va_list arg, char *buffer)
 {
-	va_list arg;
 	int buf_c = 0, form_c = 0, s_c = 0;
-	char *buffer, *str, *id;
+	char *str, *id;
 	id_func f;
 
-	va_start(arg, format);
-	buffer = create_buffer();
 	while (format[form_c] != '\0')
 	{
 		if (format[form_c] == '%')
@@ -57,7 +54,24 @@ int _printf(const char *format, ...)
 	buffer[buf_c] = '\0';
 	buffer = _realloc(buffer, 1024, (unsigned int)(buf_c));
 	write(1, buffer, buf_c);
-	va_end(arg);
 	free(buffer);
 	return (buf_c);
+}
+
+/**
+ * _printf - prints all the characters and arguments passed to it
+ * @format: all the arguments passed depending on identifiers
+ * Return: Number of characters printed
+ */
+int _printf(const char *format, ...)
+{
+	va_list arg;
+	int count = 0;
+	char *buffer;
+
+	va_start(arg, format);
+	buffer = create_buffer();
+	count = print_string(format, arg, buffer);
+	va_end(arg);
+	return (count);
 }
