@@ -65,7 +65,6 @@ int print_string(const char *format, va_list arg, char *buffer)
 	buffer[buf_c] = '\0';
 	buffer = _realloc(buffer, 1024, (unsigned int)(buf_c));
 	write(1, buffer, buf_c);
-	free(buffer);
 	return (buf_c);
 }
 
