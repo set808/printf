@@ -13,7 +13,8 @@ char *binary_to_string(va_list list)
 
 	number = va_arg(list, unsigned int);
 	ptr = malloc(sizeof(char) * 33);
-
+	if (ptr == NULL)
+		return (NULL);
 	for (i = 0; number > 0; i++)
 	{
 		rem = number % 2 + '0';
