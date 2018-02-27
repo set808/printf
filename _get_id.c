@@ -16,6 +16,9 @@ id_func get_id_func(char *identifier)
 		{"%%", percent_to_string},
 		{"%b", binary_to_string},
 		{"%u", unsigned_int_to_string},
+		{"%o", octal_to_string},
+		{"%x", hexadecimal_to_string},
+		{"%X", upper_hexadecimal_to_string},
 		{NULL, NULL}
 	};
 	int i = 0;
