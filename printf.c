@@ -62,6 +62,7 @@ int print_string(const char *format, va_list arg, char *buffer)
 				t_c++;
 				if (buf_c == 1024)
 				{
+					buffer[buf_c] = '\0';
 					write(1, buffer, buf_c);
 					buf_c = 0;
 				}
@@ -73,6 +74,7 @@ int print_string(const char *format, va_list arg, char *buffer)
 				t_c++;
 				if (buf_c == 1024)
 				{
+					buffer[buf_c] = '\0';
 					write(1, buffer, buf_c);
 					buf_c = 0;
 				}
@@ -88,6 +90,7 @@ int print_string(const char *format, va_list arg, char *buffer)
 			form_c++;
 			if (buf_c == 1024)
 			{
+				buffer[buf_c] = '\0';
 				write(1, buffer, buf_c);
 				buf_c = 0;
 			}
