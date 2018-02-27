@@ -44,6 +44,8 @@ int print_string(const char *format, va_list arg, char *buffer)
 			{
 				free(id);
 				str = f(arg);
+				if (str == NULL)
+					return (-1);
 			}
 			for (s_c = 0; str[s_c] != '\0'; s_c++)
 			{
