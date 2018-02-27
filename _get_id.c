@@ -14,6 +14,7 @@ char *(*get_id_func(char *identifier))(va_list)
 		{"%d", int_to_string},
 		{"%i", int_to_string},
 		{"%%", percent_to_string},
+		{"%b", binary_to_string},
 		{NULL, NULL}
 	};
 	int i = 0;
