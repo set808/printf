@@ -30,6 +30,7 @@ char *percent_to_string(va_list list);
 char *binary_to_string(va_list list);
 char *unsigned_int_to_string(va_list list);
 int _strlen(char *s);
+void _strrev(char *s);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char *create_buffer(void);
 
