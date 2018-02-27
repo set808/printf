@@ -59,11 +59,21 @@ int print_string(const char *format, va_list arg, char *buffer)
 			{
 				buffer[buf_c] = str[s_c];
 				buf_c++;
+				if (buf_c == 1025)
+				{
+					write(1, buffer, buf_c);
+					buf_c = 0;
+				}
 			}
 			if (str[0] == '\0' && format[form_c + 1] == 'c')
 			{
 				buffer[buf_c] = '\0';
 				buf_c++;
+				if (buf_c == 1025)
+				{
+					write(1, buffer, buf_c);
+					buf_c = 0;
+				}
 			}
 			form_c += (2 + locate_form(format, form_c));
 			free(str);
@@ -73,6 +83,11 @@ int print_string(const char *format, va_list arg, char *buffer)
 			buffer[buf_c] = format[form_c];
 			buf_c++;
 			form_c++;
+			if (buf_c == 1025)
+			{
+				write(1, buffer, buf_c);
+				buf_c = 0;
+			}
 		}
 	}
 	buffer[buf_c] = '\0';
