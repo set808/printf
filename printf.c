@@ -26,7 +26,7 @@ int locate_form(const char *s, int index)
  */
 int print_string(const char *format, va_list arg, char *buffer)
 {
-	int buf_c = 0, form_c = 0, s_c = 0;
+	int buf_c = 0, form_c = 0, s_c = 0, t_c = 0;
 	char *str, *id;
 	id_func f;
 
@@ -59,9 +59,10 @@ int print_string(const char *format, va_list arg, char *buffer)
 			{
 				buffer[buf_c] = str[s_c];
 				buf_c++;
+				t_c++;
 				if (buf_c == 1025)
 				{
-					write(1, buffer, buf_c);
+					write(1, buffer, buf_c - 1);
 					buf_c = 0;
 				}
 			}
@@ -69,9 +70,10 @@ int print_string(const char *format, va_list arg, char *buffer)
 			{
 				buffer[buf_c] = '\0';
 				buf_c++;
+				t_c++;
 				if (buf_c == 1025)
 				{
-					write(1, buffer, buf_c);
+					write(1, buffer, buf_c - 1);
 					buf_c = 0;
 				}
 			}
@@ -82,10 +84,11 @@ int print_string(const char *format, va_list arg, char *buffer)
 		{
 			buffer[buf_c] = format[form_c];
 			buf_c++;
+			t_c++;
 			form_c++;
 			if (buf_c == 1025)
 			{
-				write(1, buffer, buf_c);
+				write(1, buffer, buf_c - 1);
 				buf_c = 0;
 			}
 		}
@@ -93,7 +96,7 @@ int print_string(const char *format, va_list arg, char *buffer)
 	buffer[buf_c] = '\0';
 	write(1, buffer, buf_c);
 	free(buffer);
-	return (buf_c);
+	return (t_c);
 }
 
 /**
