@@ -60,6 +60,11 @@ int print_string(const char *format, va_list arg, char *buffer)
 				buffer[buf_c] = str[s_c];
 				buf_c++;
 			}
+			if (str[0] == '\0' && format[form_c + 1] == 'c')
+			{
+				buffer[buf_c] = '\0';
+				buf_c++;
+			}
 			form_c += (2 + locate_form(format, form_c));
 			free(str);
 		}
@@ -89,11 +94,11 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (-1);
-	buffer = create_buffer();
-	if (buffer == NULL)
-		return (-1);
 	va_start(arg, format);
 	if (arg == NULL)
+		return (-1);
+	buffer = create_buffer();
+	if (buffer == NULL)
 		return (-1);
 	count = print_string(format, arg, buffer);
 	va_end(arg);
