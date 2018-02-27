@@ -60,9 +60,9 @@ int print_string(const char *format, va_list arg, char *buffer)
 				buffer[buf_c] = str[s_c];
 				buf_c++;
 				t_c++;
-				if (buf_c == 1025)
+				if (buf_c == 1024)
 				{
-					write(1, buffer, buf_c - 1);
+					write(1, buffer, buf_c);
 					buf_c = 0;
 				}
 			}
@@ -71,9 +71,9 @@ int print_string(const char *format, va_list arg, char *buffer)
 				buffer[buf_c] = '\0';
 				buf_c++;
 				t_c++;
-				if (buf_c == 1025)
+				if (buf_c == 1024)
 				{
-					write(1, buffer, buf_c - 1);
+					write(1, buffer, buf_c);
 					buf_c = 0;
 				}
 			}
@@ -86,9 +86,9 @@ int print_string(const char *format, va_list arg, char *buffer)
 			buf_c++;
 			t_c++;
 			form_c++;
-			if (buf_c == 1025)
+			if (buf_c == 1024)
 			{
-				write(1, buffer, buf_c - 1);
+				write(1, buffer, buf_c);
 				buf_c = 0;
 			}
 		}

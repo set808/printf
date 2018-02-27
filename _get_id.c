@@ -19,6 +19,7 @@ id_func get_id_func(char *identifier)
 		{"%o", octal_to_string},
 		{"%x", hexadecimal_to_string},
 		{"%X", upper_hexadecimal_to_string},
+		{"%r", reverse_to_string},
 		{NULL, NULL}
 	};
 	int i = 0;
