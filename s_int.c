@@ -35,7 +35,7 @@ char *int_to_string(va_list list)
 
 	if (number < 0)
 		t = 1;
-	res = malloc(sizeof(char) * (numlen(digits) + t));
+	res = malloc(sizeof(char) * (numlen(digits) + 2 + t));
 	if (res == NULL)
 		return (NULL);
 	if (number < 0)
