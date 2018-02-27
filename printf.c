@@ -35,8 +35,11 @@ int print_string(const char *format, va_list arg, char *buffer)
 		if (format[form_c] == '%')
 		{
 			id = find_id(format, form_c);
-			if (id[1] == '\0')
+			if (id[1] == '\0' && form_c = 0)
+			{
+				free(id);
 				return (-1);
+			}
 			f = get_id_func(id);
 			if (f == NULL)
 				str = id;
@@ -45,7 +48,11 @@ int print_string(const char *format, va_list arg, char *buffer)
 				free(id);
 				str = f(arg);
 				if (str == NULL)
+				{
+					free(buffer);
+					free(str);
 					return (-1);
+				}
 			}
 			for (s_c = 0; str[s_c] != '\0'; s_c++)
 			{
@@ -63,7 +70,6 @@ int print_string(const char *format, va_list arg, char *buffer)
 		}
 	}
 	buffer[buf_c] = '\0';
-	/*buffer = _realloc(buffer, 1024, (unsigned int)(buf_c));*/
 	write(1, buffer, buf_c);
 	free(buffer);
 	return (buf_c);
