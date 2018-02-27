@@ -35,7 +35,7 @@ int print_string(const char *format, va_list arg, char *buffer)
 		if (format[form_c] == '%')
 		{
 			id = find_id(format, form_c);
-			if (id[1] == '\0' && form_c = 0)
+			if (id[1] == '\0' && form_c == 0)
 			{
 				free(id);
 				return (-1);
