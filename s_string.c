@@ -9,7 +9,7 @@
  */
 char *string_to_string(va_list arg)
 {
-	char *s, *c_s, *n;
+	char *s, *n;
 
 	s = va_arg(arg, char *);
 	if (s == NULL)
@@ -24,5 +24,5 @@ char *string_to_string(va_list arg)
 	if (c_s == NULL)
 		return (NULL);
 	c_s = strcpy(c_s, s);
-	return (c_s);
+	return (s);
 }

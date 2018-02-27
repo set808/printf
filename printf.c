@@ -96,10 +96,16 @@ int _printf(const char *format, ...)
 		return (-1);
 	va_start(arg, format);
 	if (arg == NULL)
+	{
+		va_end(arg);
 		return (-1);
+	}
 	buffer = create_buffer();
 	if (buffer == NULL)
+	{
+		va_end(arg);
 		return (-1);
+	}
 	count = print_string(format, arg, buffer);
 	va_end(arg);
 	return (count);
