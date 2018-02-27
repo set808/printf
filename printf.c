@@ -82,8 +82,10 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (-1);
-	va_start(arg, format);
 	buffer = create_buffer();
+	if (buffer == NULL)
+		return (-1);
+	va_start(arg, format);
 	count = print_string(format, arg, buffer);
 	va_end(arg);
 	return (count);
