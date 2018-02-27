@@ -6,7 +6,7 @@
  * Return: returns the corresponding print function
  */
 
-char *(*get_id_func(char *identifier))(va_list)
+id_func get_id_func(char *identifier)
 {
 	print_id ids[] = {
 		{"%c", char_to_string},
@@ -15,6 +15,7 @@ char *(*get_id_func(char *identifier))(va_list)
 		{"%i", int_to_string},
 		{"%%", percent_to_string},
 		{"%b", binary_to_string},
+		{"%u", unsigned_int_to_string},
 		{NULL, NULL}
 	};
 	int i = 0;
