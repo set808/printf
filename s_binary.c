@@ -12,6 +12,11 @@ char *binary_to_string(va_list list)
 	char *ptr, rem;
 
 	number = va_arg(list, unsigned int);
+	if (number == 0)
+	{
+		ptr = "0";
+		return (ptr);
+	}
 	ptr = malloc(sizeof(char) * 33);
 	if (ptr == NULL)
 		return (NULL);
