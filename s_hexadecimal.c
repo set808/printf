@@ -16,6 +16,12 @@ char *hexadecimal_to_string(va_list list)
 	hex = malloc(sizeof(char) * 9);
 	if (hex == NULL)
 		return (NULL);
+	if (num == 0)
+	{
+		hex[0] = '0';
+		hex[1] = '\0';
+		return (hex);
+	}
 	while (num != 0)
 	{
 		holder = num % 16;
