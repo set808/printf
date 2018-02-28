@@ -16,6 +16,12 @@ char *octal_to_string(va_list list)
 	oct = malloc(sizeof(char) * 12);
 	if (oct == NULL)
 		return (NULL);
+	if (num == 0)
+	{
+		oct[0] = '0';
+		oct[1] = '\0';
+		return (oct);
+	}
 	while (num != 0)
 	{
 		oct[i] = num % 8 + '0';
