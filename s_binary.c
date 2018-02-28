@@ -13,6 +13,12 @@ char *binary_to_string(va_list list)
 
 	number = va_arg(list, unsigned int);
 	ptr = malloc(sizeof(char) * 33);
+	if (number == 0)
+	{
+		ptr[0] = '0';
+		ptr[1] = '\0';
+		return (ptr);
+	}
 	if (ptr == NULL)
 		return (NULL);
 	for (i = 0; number > 0; i++)
