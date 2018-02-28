@@ -2,9 +2,9 @@
 #include <stdio.h>
 
 /**
- * upper_hexadecimal_to_string - turns an hexadecimal upper case into a string
+ * siple_hex - turns an hexadecimal upper case into a string
  *
- * @list: list where number is held
+ * @c: input character
  *
  * Return: returns the hexa as a string. returns NULL if failed
  */
@@ -18,7 +18,7 @@ char *simple_hex(char c)
 		return (NULL);
 	hex[0] = '\\';
 	hex[1] = 'x';
-	if (c <16)
+	if (c < 16)
 	{
 		hex[2] = '0';
 		holder = c % 16;
@@ -48,7 +48,7 @@ char *simple_hex(char c)
 	return (hex);
 }
 /**
- * upper_hexadecimal_to_string - turns an hexadecimal upper case into a string
+ * non_to_string - turns an non character to hex into a string
  *
  * @list: list where number is held
  *
