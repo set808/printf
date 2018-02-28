@@ -22,6 +22,7 @@ id_func get_id_func(char *identifier)
 		{"%r", reverse_to_string},
 		{"%R", rot13_to_string},
 		{"%S", non_to_string},
+		{"%p", address_to_string},
 		{NULL, NULL}
 	};
 	int i = 0;
