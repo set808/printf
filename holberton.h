@@ -34,6 +34,7 @@ char *hexadecimal_to_string(va_list list);
 char *upper_hexadecimal_to_string(va_list list);
 char *reverse_to_string(va_list list);
 char *rot13_to_string(va_list list);
+char *non_to_string(va_list list);
 int _strlen(char *s);
 void _strrev(char *s);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
