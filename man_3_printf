@@ -53,5 +53,22 @@ Takes an unsigned int and converts it to binary.
 Takes a character pointer and when there is a non character value witch are below 32 and above 126 in ASCII table it will convert it to hexadecimals.
 .PP
 .B p
+.PP
 Takes a character pointer and type cast it to an long unsigned int and converts it to hexadecimals.
 .PP
+.SH Examples
+.B Input
+.PP
+_printf(\"I have %d dollars\\n\", 20);
+.PP
+_printf(\"%s and %s deserve %d%% on this project.\\n\", \"Spencer\", \"Kevin\", 100);
+.PP
+.B Output
+.PP
+I have 20 dollars
+.PP
+Spencer and Kevin deserve 100% on this project.
+.SH See Also
+.B Twitter
+.PP
+@mrspencertaylor @yook00627
