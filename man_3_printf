@@ -26,12 +26,32 @@ If an output error is encountered, a negative value is returned.
 .PP
 .B Conversion specifier
 .PP
-A character that specifies the type of conversion to be applied. The conversion specifiers and their meanings are:
+ A character that specifies the type of conversion to be applied. The conversion specifiers and their meanings are:
+.PP
+.B c
+.PP
+ Takes an int arguments that is in ascii decimals and converts it to a strign of 2 bytes with the character and null terminator.
+.PP
+.B s
+.PP
+ Takes a character pointer and copies it into a new pointer.
 .PP
 .B d,i
 .PP
  Takes an int argument and converts it to signed decimal notation.
 .PP
+.B b
+.PP
+Takes an unsigned int and converts it to binary.
+.PP
 .B o, u, x, X
 .PP
-Takes an unsigned int argument and converts it to unsigned octal (\fBo\fR), unsigned decimal (\fBu\fR), or unsigned hexadecimal(\fBx\fR and \fBX\fR) notation. \fBabcdef\fR are used for \fBx\fR conversions anad \fBABCDEF\fR are used for \fBX\fR conversions.
+ Takes an unsigned int argument and converts it to unsigned octal (\fBo\fR), unsigned decimal (\fBu\fR), or unsigned hexadecimal(\fBx\fR and \fBX\fR) notation. \fBabcdef\fR are used for \fBx\fR conversions anad \fBABCDEF\fR are used for \fBX\fR conversions.
+.PP
+.B S
+.PP
+Takes a character pointer and when there is a non character value witch are below 32 and above 126 in ASCII table it will convert it to hexadecimals.
+.PP
+.B p
+Takes a character pointer and type cast it to an long unsigned int and converts it to hexadecimals.
+.PP
