@@ -12,15 +12,12 @@ char *long_hexadecimal(long unsigned int num)
 	long unsigned int holder, i = 0;
 	char *hex;
 
-	hex = malloc(sizeof(char) * 16);
+	hex = malloc(sizeof(char) * 19);
 	if (hex == NULL)
 		return (NULL);
 	if (num == 0)
 	{
-		hex[0] = '0';
-		hex[1] = 'x';
-		hex[2] = '0';
-		hex[3] = '\0';
+		hex = _strcpy(hex, "(nil)");
 		return (hex);
 	}
 	while (num != 0)

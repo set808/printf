@@ -21,6 +21,7 @@ typedef struct identifier
 int _printf(const char *format, ...);
 id_func get_id_func(char *id);
 int _strcmp(char *s1, char *s2);
+char *_strcpy(char *dest, char *src);
 char *strcpy(char *dest, char *src);
 char *find_id(const char *s, int index);
 char *char_to_string(va_list arg);
